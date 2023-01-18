@@ -1,13 +1,17 @@
 from app import app
+from flask import render_template
+
+
 
 @app.route('/')
 def homePage():
-    return {
-        'test':'hi'
-    }
+    text = "Click the link to see the greatest to ever do it!"
+    return render_template('index.html', my_text = text )
+
+
+
 
 @app.route('/favorite_five')
 def favoritePage():
-    return {
-        'test':'hello'
-    }
+    people = ['Derek Jeter', 'Neymar', 'Biggie Smalls', 'Lil Wayne', 'Carmelo Anthony']
+    return render_template('favorite_five.html', people = people)
